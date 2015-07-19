@@ -44,10 +44,10 @@
  * Tracking people within groups with RGB-D data,
  * In Proceedings of the International Conference on Intelligent Robots and Systems (IROS) 2012, Vilamoura (Portugal), 2012.
  */
-  
+
 #include <pcl/console/parse.h>
 #include <pcl/point_types.h>
-#include <pcl/visualization/pcl_visualizer.h>    
+#include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/io/openni_grabber.h>
 #include <pcl/sample_consensus/sac_model_plane.h>
 #include <pcl/people/ground_based_people_detection_app.h>
@@ -160,8 +160,8 @@ int main (int argc, char** argv)
   // Spin until 'Q' is pressed:
   viewer.spin();
   std::cout << "done." << std::endl;
-  
-  cloud_mutex.unlock ();    
+
+  cloud_mutex.unlock ();
 
   // Ground plane estimation:
   Eigen::VectorXf ground_coeffs;
@@ -186,7 +186,7 @@ int main (int argc, char** argv)
   people_detector.setVoxelSize(voxel_size);                        // set the voxel size
   people_detector.setIntrinsics(rgb_intrinsics_matrix);            // set RGB camera intrinsic parameters
   people_detector.setClassifier(person_classifier);                // set person classifier
-//   people_detector.setHeightLimits(min_height, max_height);         // set person classifier
+  people_detector.setHeightLimits(min_height, max_height);         // set person classifier
 //  people_detector.setSensorPortraitOrientation(true);             // set sensor orientation to vertical
 
   // For timing:
